@@ -2,69 +2,67 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<title>{{ profile.name }} · 个人简历</title>
+<title>{{ profile.doc_title }}</title>
 <link rel="stylesheet" href="css/resume.css">
 </head>
 <body>
-<main class="resume">
+<main class="resume {{ profile.resume_class }}">
 
-  <!-- ================= 头部：姓名 + 联系方式 + 简介 + 教育 ================= -->
+  <!-- ================= 头部：横幅 + 证件照 + 居中姓名联系方式 ================= -->
   <header class="resume-header">
+    {{#if profile.banner}}<img class="header-banner" src="{{ profile.banner }}" alt="">{{/if}}
+    {{#if profile.photo}}<img class="header-photo" src="{{ profile.photo }}" alt="">{{/if}}
     <h1 class="resume-name">{{ profile.name }}</h1>
     <div class="resume-contact">
-      {{#each profile.contact}}<span class="contact-item"><i class="square"></i>{{ text }}</span>{{/each}}
+      {{#each profile.contact}}<span class="contact-item"><img class="ci" src="{{ icon }}" alt="">{{ text }}</span>{{/each}}
     </div>
-    {{#if profile.summary}}<p class="resume-summary"><i class="square"></i>{{ profile.summary }}</p>{{/if}}
-    {{#if profile.github}}<p class="resume-github"><i class="square"></i>{{ profile.github }}</p>{{/if}}
-    {{#if profile.education_line}}<p class="resume-edu"><i class="square"></i>{{ profile.education_line }}</p>{{/if}}
+    {{#if profile.contact2}}<div class="resume-contact">
+      {{#each profile.contact2}}<span class="contact-item"><img class="ci" src="{{ icon }}" alt="">{{ text }}</span>{{/each}}
+    </div>{{/if}}
+    {{#if profile.homepage}}<div class="resume-homepage"><img class="ci" src="{{ profile.homepage_icon }}" alt="">{{ profile.homepage }}</div>{{/if}}
   </header>
 
-  <!-- ================= 各板块（由 sections 数组驱动） ================= -->
+  <!-- ================= 各板块 ================= -->
   {{#each sections}}
-  <section class="resume-section">
-    <h2 class="section-title">{{ title }}</h2>
-    <div class="section-bar" aria-hidden="true"></div>
-
-    {{#if intro}}<p class="section-intro">{{ intro }}</p>{{/if}}
-
-    {{#if items}}
-    <ul class="cv-list">
-      {{#each items}}
-      <li>{{#if lead}}<b class="item-lead">{{ lead }}：</b>{{/if}}{{ text }}</li>
-      {{/each}}
-    </ul>
-    {{/if}}
+  <section class="resume-section {{ cls }}">
+    <div class="section-head">
+      {{#if icon}}<img class="section-icon" src="{{ icon }}" alt="">{{/if}}
+      <h2 class="section-title">{{ title }}</h2>
+      <div class="section-rule" aria-hidden="true"></div>
+    </div>
 
     {{#each entries}}
     <div class="entry">
       <div class="entry-head">
-        <span class="entry-org">{{ org }}{{#if role}}<span class="entry-role"> · {{ role }}</span>{{/if}}</span>
+        {{#if num}}<span class="entry-num">{{ num }}</span>{{/if}}
+        {{#if icon}}<img class="entry-icon" src="{{ icon }}" alt="">{{/if}}
+        <span class="entry-org">{{ org }}{{#if role}}-{{ role }}{{/if}}</span>
         {{#if period}}<span class="entry-period">{{ period }}</span>{{/if}}
       </div>
-      {{#if desc}}<p class="entry-desc">{{#if descLabel}}<b>{{ descLabel }}：</b>{{/if}}{{ desc }}</p>{{/if}}
-      {{#if points}}
-      <ul class="cv-list">
-        {{#each points}}
-        <li>{{#if lead}}<b class="item-lead">{{ lead }}：</b>{{/if}}{{ text }}</li>
-        {{/each}}
-      </ul>
-      {{/if}}
+
       {{#each projects}}
       <div class="project">
-        <div class="project-title">{{ title }}</div>
-        {{#if desc}}<p class="project-desc">{{#if descLabel}}<b>{{ descLabel }}：</b>{{/if}}{{ desc }}</p>{{/if}}
+        {{#if title}}<div class="project-title">{{#if plabel}}{{ plabel }}: {{/if}}{{ title }}</div>{{/if}}
+        {{#if desc}}<p class="project-desc">{{ descLabel }}{{ desc }}</p>{{/if}}
+        {{#if tech}}<p class="project-tech">{{ techLabel }}{{ tech }}</p>{{/if}}
+        {{#if pointsLabel}}<div class="block-label">{{ pointsLabel }}</div>{{/if}}
         {{#if points}}
-        <ul class="cv-list">
-          {{#each points}}
-          <li>{{#if lead}}<b class="item-lead">{{ lead }}：</b>{{/if}}{{ text }}</li>
-          {{/each}}
-        </ul>
+        <ol class="num-list">
+          {{#each points}}<li><span class="pn">{{ n }}. </span>{{ text }}</li>{{/each}}
+        </ol>
         {{/if}}
-        {{#if result}}<p class="project-result">{{#if resultLabel}}<b>{{ resultLabel }}：</b>{{/if}}{{ result }}</p>{{/if}}
+        {{#if result}}<p class="project-result">●{{ resultLabel }}{{ result }}</p>{{/if}}
       </div>
       {{/each}}
     </div>
     {{/each}}
+
+    {{#if itemsLabel}}<div class="block-label">{{ itemsLabel }}</div>{{/if}}
+    {{#if items}}
+    <ul class="cv-list">
+      {{#each items}}<li>{{ text }}</li>{{/each}}
+    </ul>
+    {{/if}}
   </section>
   {{/each}}
 

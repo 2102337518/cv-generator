@@ -175,8 +175,8 @@ def strip_js_comments(text):
 
 def load_data(path):
     text = pathlib.Path(path).read_text(encoding="utf-8")
-    text = strip_js_comments(text)          # 先剥注释，再剥离 window.CV_DATA = 包装
-    m = re.match(r"^\s*window\.CV_DATA\s*=\s*([\s\S]*?);?\s*$", text)
+    text = strip_js_comments(text)          # 先剥注释，再剥离 window.CV_DATA(_ZH|_EN) = 包装
+    m = re.match(r"^\s*window\.CV_DATA(?:_ZH|_EN)?\s*=\s*([\s\S]*?);?\s*$", text)
     if m:
         text = m.group(1)
     return json.loads(text)

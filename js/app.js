@@ -10,7 +10,8 @@
   'use strict';
 
   var LANG_KEY = 'cv-lang';
-  var storeKeyOf = function (lang) { return 'cv-data-' + lang; };
+  /* v2：数据版本号。升级后旧浏览器缓存自动失效，避免看到过期的旧简历内容 */
+  var storeKeyOf = function (lang) { return 'cv-data-v2-' + lang; };
 
   var $ = function (id) { return document.getElementById(id); };
   var editor = $('editor');

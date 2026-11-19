@@ -16,7 +16,7 @@ window.CV_DATA_ZH = {
       { "icon": "assets/icons/ic-mail.png",  "text": "2102337518@qq.com" }
     ],
     "contact2": [
-      { "icon": "assets/icons/ic-globe.png", "text": "个人主页：2102337518.github.io" }
+      { "icon": "assets/icons/ic-globe.png", "text": "个人主页：2102337518.github.io", "url": "https://2102337518.github.io" }
     ],
     "homepage": "",
     "homepage_icon": "assets/icons/ic-globe.png"

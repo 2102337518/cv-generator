@@ -14,10 +14,10 @@
     {{#if profile.photo}}<img class="header-photo" src="{{ profile.photo }}" alt="">{{/if}}
     <h1 class="resume-name">{{ profile.name }}</h1>
     <div class="resume-contact">
-      {{#each profile.contact}}<span class="contact-item"><img class="ci" src="{{ icon }}" alt="">{{ text }}</span>{{/each}}
+      {{#each profile.contact}}<span class="contact-item">{{#if url}}<a class="ci-link" href="{{ url }}">{{/if}}<img class="ci" src="{{ icon }}" alt="">{{ text }}{{#if url}}</a>{{/if}}</span>{{/each}}
     </div>
     {{#if profile.contact2}}<div class="resume-contact">
-      {{#each profile.contact2}}<span class="contact-item"><img class="ci" src="{{ icon }}" alt="">{{ text }}</span>{{/each}}
+      {{#each profile.contact2}}<span class="contact-item">{{#if url}}<a class="ci-link" href="{{ url }}">{{/if}}<img class="ci" src="{{ icon }}" alt="">{{ text }}{{#if url}}</a>{{/if}}</span>{{/each}}
     </div>{{/if}}
     {{#if profile.homepage}}<div class="resume-homepage"><img class="ci" src="{{ profile.homepage_icon }}" alt="">{{ profile.homepage }}</div>{{/if}}
   </header>

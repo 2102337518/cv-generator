@@ -226,10 +226,12 @@ body {
 
 /* ---------- 打印：只输出简历本身（A4，去除工具界面） ---------- */
 @media print {
-  body { height: auto; overflow: visible; background: #fff; }
+  /* 关键：恢复文档流布局，否则 body 的 flex 布局会把打印内容截断成一页 */
+  html, body { height: auto !important; }
+  body { display: block !important; overflow: visible !important; background: #fff; }
   .toolbar, .hint-bar, .editor-pane, .divider, .toast { display: none !important; }
-  .workspace { display: block; }
-  .preview-pane { overflow: visible; }
+  .workspace { display: block !important; }
+  .preview-pane { display: block !important; overflow: visible !important; }
   .preview-scroll { padding: 0; overflow: visible; }
   .page-scale {
     width: auto !important;
@@ -243,5 +245,5 @@ body {
     padding: 0;
     box-shadow: none;
   }
-  .resume { width: 180mm; margin: 0 auto; }
+  /* .resume 宽度由 resume.css 决定（184mm，与 @page 13mm 页边距匹配），此处不再覆盖 */
 }

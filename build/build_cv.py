@@ -36,9 +36,13 @@ def get_path(obj, path):
     for key in path.split("."):
         if cur is None:
             return None
-        if not isinstance(cur, dict):
+        if isinstance(cur, dict):
+            cur = cur.get(key)
+        elif isinstance(cur, list) and key.isdigit():   # 支持数字下标，与 JS 版一致
+            idx = int(key)
+            cur = cur[idx] if 0 <= idx < len(cur) else None
+        else:
             return None
-        cur = cur.get(key)
     return cur
 
 
@@ -47,11 +51,11 @@ def truthy(v):
         return False
     if isinstance(v, str):
         return v.strip() != ""
-    if isinstance(v, (list, dict)):
+    if isinstance(v, list):
         return len(v) > 0
     if isinstance(v, (int, float)):
         return v != 0
-    return True
+    return True      # 对象恒真（与 JS 版一致）
 
 
 def esc(s):

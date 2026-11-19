@@ -36,12 +36,13 @@
     showToast.t = setTimeout(function () { toast.hidden = true; }, 2600);
   }
 
-  /* 读取 data.js 中 window.CV_DATA = {...}; 的 JSON 部分（兼容纯 JSON 文件） */
+  /* 读取 data.js 中 window.CV_DATA = {...}; 的 JSON 部分（兼容纯 JSON 文件）
+   * 注意：必须先剥注释再匹配赋值，否则带 // 头注释的 data.*.js 无法导入 */
   function extractJSON(text) {
-    var t = text.trim();
+    var t = stripJSComments(text).trim();
     var m = t.match(/^\s*window\.CV_DATA[^=]*\s*=\s*([\s\S]*?);?\s*$/);
     if (m) t = m[1];
-    return stripJSComments(t);
+    return t;
   }
 
   /* 去除 JS 注释（// 与 /* *\/），不触碰字符串字面量内部 */
@@ -101,6 +102,12 @@
     status.classList.remove('error');
     status.textContent = '✔ 解析成功 · ' + editor.value.length + ' 字符 · 修改已自动保存';
 
+    if (!TEMPLATE) {
+      status.textContent = '⚠ 简历模板未加载，无法渲染（请通过本地服务器打开本工具）';
+      status.classList.add('error');
+      return;
+    }
+
     preview.innerHTML = window.renderTemplate(TEMPLATE, data);
 
     /* 打印时 PDF 文件名跟随简历标题 */
@@ -111,14 +118,25 @@
     saveToStorage(lang);
   }
 
-  /* 按预览区宽度缩放 A4 页面 */
+  /* 按预览区宽度缩放 A4 页面
+   * 注意：先复位高度再测量自然高度，避免把上次设置的高度计入 scrollHeight
+   * 造成正反馈膨胀；缩放后布局高度 = 自然高度 × s，与视觉尺寸一致 */
   function scalePreview() {
-    var pane = previewScroll.clientWidth - 40;
+    var cs = window.getComputedStyle(previewScroll);
+    var padX = parseFloat(cs.paddingLeft || '0') + parseFloat(cs.paddingRight || '0');
+    var pane = previewScroll.clientWidth - padX;
     var base = 210 / 0.2645833;              /* 210mm → px ≈ 793.7 */
     var s = Math.min(1, pane / base);
+    pageScale.style.height = 'auto';
+    var natural = pageScale.scrollHeight;    /* 未缩放的自然内容高度 */
     pageScale.style.transform = 'scale(' + s + ')';
     pageScale.style.width = base + 'px';
-    pageScale.style.height = Math.ceil(previewScroll.scrollHeight / s) + 'px';
+    pageScale.style.height = Math.ceil(natural * s) + 'px';
+  }
+  var scaleTimer = null;
+  function scaleDebounced() {
+    clearTimeout(scaleTimer);
+    scaleTimer = setTimeout(scalePreview, 150);
   }
 
   /* ---------- 语言切换 ---------- */
@@ -148,7 +166,7 @@
     renderTimer = setTimeout(render, 300);
   });
 
-  window.addEventListener('resize', scalePreview);
+  window.addEventListener('resize', scaleDebounced);
 
   $('btn-lang').addEventListener('click', function () {
     switchLang(lang === 'zh' ? 'en' : 'zh');
@@ -207,22 +225,29 @@
     showToast('已重置为默认数据（' + (lang === 'zh' ? '中文' : 'English') + '）');
   });
 
-  /* 左右栏拖动调整宽度 */
+  /* 左右栏拖动调整宽度（rAF 节流；鼠标在窗口外松开也能结束拖动） */
   divider.addEventListener('mousedown', function (e) {
     e.preventDefault();
     var startX = e.clientX;
     var startW = editorPane.offsetWidth;
+    var raf = null;
     function move(ev) {
+      if (!(ev.buttons & 1)) { up(); return; }   /* 按键已松开（含窗口外松开） */
       var w = Math.min(Math.max(startW + ev.clientX - startX, 300), window.innerWidth * 0.72);
       editorPane.style.width = w + 'px';
-      scalePreview();
+      if (raf) return;                            /* 每帧最多重算一次 */
+      raf = requestAnimationFrame(function () { raf = null; scalePreview(); });
     }
     function up() {
       document.removeEventListener('mousemove', move);
       document.removeEventListener('mouseup', up);
+      window.removeEventListener('blur', up);
+      if (raf) { cancelAnimationFrame(raf); raf = null; }
+      scalePreview();
     }
     document.addEventListener('mousemove', move);
     document.addEventListener('mouseup', up);
+    window.addEventListener('blur', up);
   });
 
   /* ---------- 初始化 ---------- */

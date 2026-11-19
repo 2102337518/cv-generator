@@ -88,7 +88,7 @@
         i++;
       } else if (kind === 'if') {
         var v = getPath(ctx, tok[1]);
-        if (v === undefined) v = getPath(root, tok[1]);
+        if (v == null) v = getPath(root, tok[1]);       /* null/undefined 均回退根数据（与 Python 版一致） */
         if (truthy(v)) {
           var inner = parse(tokens, i + 1, ctx, root);
           out.push(inner.html);
@@ -98,7 +98,7 @@
         }
       } else if (kind === 'each') {
         var items = getPath(ctx, tok[1]);
-        if (items === undefined) items = getPath(root, tok[1]);
+        if (items == null) items = getPath(root, tok[1]);
         var list = Array.isArray(items) ? items : [];
         for (var j = 0; j < list.length; j++) {
           var sub = parse(tokens, i + 1, list[j], root);

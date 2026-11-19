@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>个人简历生成工具 · CV Generator</title>
+  <meta name="description" content="个人简历生成工具：编辑数据实时预览简历效果，一键下载 PDF。">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📄</text></svg>">
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+
+  <header class="toolbar">
+    <div class="brand">
+      <span class="brand-icon">📄</span>
+      <div class="brand-text">
+        <div class="brand-title">个人简历生成工具</div>
+        <div class="brand-sub">CV Generator · 左侧编辑数据 → 右侧实时预览 → 一键下载 PDF</div>
+      </div>
+    </div>
+    <div class="toolbar-actions">
+      <button id="btn-print" class="btn btn-primary" type="button">⬇ 下载 PDF</button>
+      <button id="btn-export" class="btn" type="button">导出数据</button>
+      <button id="btn-import" class="btn" type="button">导入数据</button>
+      <button id="btn-reset" class="btn" type="button">重置为默认</button>
+      <input type="file" id="file-input" accept=".json,.js,.txt" hidden>
+    </div>
+  </header>
+
+  <div class="hint-bar" id="hint-bar">
+    💡 使用提示：在左侧编辑简历数据（JSON 格式），右侧**实时同步预览**；点击「下载 PDF」→ 浏览器打印对话框 → 目标选择「另存为 PDF」即可保存为 A4 简历。修改会自动保存在本浏览器（localStorage）。
+  </div>
+
+  <main class="workspace">
+    <section class="editor-pane">
+      <textarea id="editor" spellcheck="false" aria-label="简历数据编辑器"></textarea>
+      <div id="editor-status" class="editor-status"></div>
+    </section>
+
+    <div class="divider" id="divider" title="拖动调整左右宽度"></div>
+
+    <section class="preview-pane">
+      <div class="preview-scroll" id="preview-scroll">
+        <div class="page-scale" id="page-scale">
+          <div class="page-sheet">
+            <div id="preview"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="toast" class="toast" hidden></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/template.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

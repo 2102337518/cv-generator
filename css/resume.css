@@ -1,0 +1,182 @@
+/* =====================================================================
+ * resume.css — 简历样式（网页实时预览 与 PDF 构建共用同一份样式）
+ * ---------------------------------------------------------------------
+ * 设计规格参考模板简历：
+ *   姓名 22.5pt / 章节标题 18pt + 蓝色分隔条 / 条目条 13.5pt + 灰底
+ *   项目标题 13.5pt + 蓝色下划线 / 正文 11pt / 关键数据灰色高亮
+ * 配色：墨色 #111111 · 主蓝 #3b82f6 · 深蓝 #2563eb · 灰带 #f3f4f6
+ * ===================================================================== */
+
+/* ---------- 页面：A4，页边距与打印一致 ---------- */
+@page {
+  size: A4;
+  margin: 8mm 14mm 10mm;
+}
+
+:root {
+  --ink: #111111;
+  --blue: #3b82f6;
+  --blue-dark: #2563eb;
+  --band: #f3f4f6;
+  --mark: #f5f5f5;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body { background: transparent; }
+
+/* ---------- 简历容器 ---------- */
+.resume {
+  width: 182mm;                    /* A4 210mm - 左右各 14mm 页边距 */
+  margin: 0 auto;
+  color: var(--ink);
+  font-family: 'Noto Sans CJK SC', 'Noto Sans SC', 'Source Han Sans SC',
+    'PingFang SC', 'Microsoft YaHei', 'Hiragino Sans GB', sans-serif;
+  font-size: 10.5pt;
+  line-height: 1.42;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---------- 通用小方块标记（模板特色：■ 前置） ---------- */
+.square {
+  display: inline-block;
+  width: 2.4mm;
+  height: 2.4mm;
+  background: var(--ink);
+  margin-right: 2mm;
+  flex-shrink: 0;
+}
+
+/* ---------- 头部 ---------- */
+.resume-header { margin-bottom: 3.2mm; }
+
+.resume-name {
+  font-size: 21pt;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  margin-bottom: 1.2mm;
+}
+
+.resume-contact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2mm 7mm;
+  font-size: 11pt;
+  margin-bottom: 1mm;
+}
+.contact-item { display: inline-flex; align-items: center; }
+.contact-item .square { margin-right: 1.6mm; }
+
+.resume-summary,
+.resume-github,
+.resume-edu {
+  display: flex;
+  align-items: center;
+  font-size: 11pt;
+  margin-top: 1mm;
+}
+
+/* ---------- 章节 ---------- */
+.resume-section { margin-bottom: 3.4mm; }
+
+.section-title {
+  font-size: 16.5pt;
+  font-weight: 800;
+  margin-bottom: 1.1mm;
+}
+
+.section-bar {
+  height: 1.1mm;
+  background: var(--blue);
+  margin-bottom: 2.2mm;
+}
+
+.section-intro { margin-bottom: 1.2mm; }
+
+/* ---------- 要点列表（■ 方块项目符号） ---------- */
+.cv-list {
+  list-style: none;
+  margin: 0.7mm 0 1.3mm;
+}
+.cv-list li {
+  position: relative;
+  padding-left: 4.6mm;
+  margin-bottom: 0.7mm;
+  text-align: justify;
+}
+.cv-list li::before {
+  content: '';
+  position: absolute;
+  left: 0.4mm;
+  top: 0.58em;
+  width: 2.2mm;
+  height: 2.2mm;
+  background: var(--ink);
+}
+
+.item-lead { font-weight: 700; }
+
+/* ---------- 经历条目（公司/竞赛 灰底条） ---------- */
+.entry { margin-bottom: 2.2mm; }
+
+.entry-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 4mm;
+  background: var(--band);
+  padding: 1mm 2.6mm;
+  font-size: 12.5pt;
+  font-weight: 700;
+  margin-bottom: 1.2mm;
+}
+.entry-role { font-weight: 400; }
+.entry-period {
+  font-weight: 400;
+  font-size: 11pt;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.entry-desc { margin-bottom: 0.8mm; }
+
+/* ---------- 项目 ---------- */
+.project { margin-bottom: 2mm; }
+
+.project-title {
+  display: inline-block;
+  position: relative;
+  font-size: 12.5pt;
+  font-weight: 700;
+  padding-bottom: 1mm;
+  margin-bottom: 1.2mm;
+}
+/* 蓝色下划线：用 ::after 细条实现（weasyprint 对 border-bottom 有渲染问题） */
+.project-title::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1.1pt;
+  background: var(--blue-dark);
+}
+
+.project-desc { margin-bottom: 0.8mm; text-align: justify; }
+
+.project-result { margin-top: 0.3mm; }
+
+/* ---------- 高亮（**文字** 渲染为灰底，模板特色） ---------- */
+mark {
+  background: var(--mark);
+  color: inherit;
+  padding: 0 1mm;
+  border-radius: 1px;
+}
+
+b { font-weight: 700; }
+
+/* ---------- 分页控制：标题不孤立、项目不拆页 ---------- */
+h1, h2, .section-bar, .entry-head, .project-title { break-after: avoid-page; }
+.project, .entry { break-inside: avoid-page; }
+.cv-list li { break-inside: avoid-page; }

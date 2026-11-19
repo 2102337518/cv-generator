@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>{{ profile.name }} · 个人简历</title>
+<link rel="stylesheet" href="css/resume.css">
+</head>
+<body>
+<main class="resume">
+
+  <!-- ================= 头部：姓名 + 联系方式 + 简介 + 教育 ================= -->
+  <header class="resume-header">
+    <h1 class="resume-name">{{ profile.name }}</h1>
+    <div class="resume-contact">
+      {{#each profile.contact}}<span class="contact-item"><i class="square"></i>{{ text }}</span>{{/each}}
+    </div>
+    {{#if profile.summary}}<p class="resume-summary"><i class="square"></i>{{ profile.summary }}</p>{{/if}}
+    {{#if profile.github}}<p class="resume-github"><i class="square"></i>{{ profile.github }}</p>{{/if}}
+    {{#if profile.education_line}}<p class="resume-edu"><i class="square"></i>{{ profile.education_line }}</p>{{/if}}
+  </header>
+
+  <!-- ================= 各板块（由 sections 数组驱动） ================= -->
+  {{#each sections}}
+  <section class="resume-section">
+    <h2 class="section-title">{{ title }}</h2>
+    <div class="section-bar" aria-hidden="true"></div>
+
+    {{#if intro}}<p class="section-intro">{{ intro }}</p>{{/if}}
+
+    {{#if items}}
+    <ul class="cv-list">
+      {{#each items}}
+      <li>{{#if lead}}<b class="item-lead">{{ lead }}：</b>{{/if}}{{ text }}</li>
+      {{/each}}
+    </ul>
+    {{/if}}
+
+    {{#each entries}}
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-org">{{ org }}{{#if role}}<span class="entry-role"> · {{ role }}</span>{{/if}}</span>
+        {{#if period}}<span class="entry-period">{{ period }}</span>{{/if}}
+      </div>
+      {{#if desc}}<p class="entry-desc">{{#if descLabel}}<b>{{ descLabel }}：</b>{{/if}}{{ desc }}</p>{{/if}}
+      {{#if points}}
+      <ul class="cv-list">
+        {{#each points}}
+        <li>{{#if lead}}<b class="item-lead">{{ lead }}：</b>{{/if}}{{ text }}</li>
+        {{/each}}
+      </ul>
+      {{/if}}
+      {{#each projects}}
+      <div class="project">
+        <div class="project-title">{{ title }}</div>
+        {{#if desc}}<p class="project-desc">{{#if descLabel}}<b>{{ descLabel }}：</b>{{/if}}{{ desc }}</p>{{/if}}
+        {{#if points}}
+        <ul class="cv-list">
+          {{#each points}}
+          <li>{{#if lead}}<b class="item-lead">{{ lead }}：</b>{{/if}}{{ text }}</li>
+          {{/each}}
+        </ul>
+        {{/if}}
+        {{#if result}}<p class="project-result">{{#if resultLabel}}<b>{{ resultLabel }}：</b>{{/if}}{{ result }}</p>{{/if}}
+      </div>
+      {{/each}}
+    </div>
+    {{/each}}
+  </section>
+  {{/each}}
+
+</main>
+</body>
+</html>

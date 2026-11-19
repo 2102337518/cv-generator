@@ -1,0 +1,11 @@
+# Python 缓存
+__pycache__/
+*.pyc
+
+# 输出产物
+output/*.pdf
+
+# 系统文件
+.DS_Store
+Thumbs.db
+*Zone.Identifier

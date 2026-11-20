@@ -11,7 +11,7 @@
 
   var LANG_KEY = 'cv-lang';
   /* v2：数据版本号。升级后旧浏览器缓存自动失效，避免看到过期的旧简历内容 */
-  var storeKeyOf = function (lang) { return 'cv-data-v3-' + lang; };
+  var storeKeyOf = function (lang) { return 'cv-data-v4-' + lang; };
 
   var $ = function (id) { return document.getElementById(id); };
   var editor = $('editor');
@@ -263,7 +263,7 @@
     setTimeout(scalePreview, 50);
   }
 
-  fetch('resume.template.html?v=3')
+  fetch('resume.template.html?v=4')
     .then(function (r) {
       if (!r.ok) throw new Error('HTTP ' + r.status);
       return r.text();

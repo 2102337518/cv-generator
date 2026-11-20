@@ -155,6 +155,8 @@ html, body { background: transparent; }
   margin-right: 1pt;
 }
 .entry-org { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+/* 工作/实习/竞赛：公司-岗位行加粗 */
+.resume-section.bold-org .entry-org { font-weight: 700; }
 .entry-period {
   margin-left: auto;
   white-space: nowrap;
@@ -163,8 +165,8 @@ html, body { background: transparent; }
 
 /* ---------- 项目 ---------- */
 .project { margin-bottom: 1pt; }
-.project-title { margin-bottom: 2pt; font-weight: 700; }
-.project-desc, .project-tech { margin-bottom: 2pt; font-weight: 700; }
+.project-title { margin-bottom: 2pt; }
+.project-desc, .project-tech { margin-bottom: 2pt; }
 .project-result { margin-top: 2pt; }
 
 /* ---------- 块标签（工作内容：/ 主要工作：/ 荣誉奖项：） ---------- */

@@ -60,6 +60,7 @@ window.CV_DATA_EN = {
     },
     {
       "title": "Work Experience",
+      "cls": "bold-org",
       "icon": "assets/icons/ic-work.png",
       "entries": [
         {
@@ -92,6 +93,7 @@ window.CV_DATA_EN = {
     },
     {
       "title": "Internship Experience",
+      "cls": "bold-org",
       "icon": "assets/icons/ic-intern.png",
       "entries": [
         {
@@ -154,6 +156,7 @@ window.CV_DATA_EN = {
     },
     {
       "title": "Competitions",
+      "cls": "bold-org",
       "icon": "assets/icons/ic-race.png",
       "entries": [
         {

@@ -60,6 +60,7 @@ window.CV_DATA_ZH = {
     },
     {
       "title": "工作经历",
+      "cls": "bold-org",
       "icon": "assets/icons/ic-work.png",
       "entries": [
         {
@@ -92,6 +93,7 @@ window.CV_DATA_ZH = {
     },
     {
       "title": "实习经历",
+      "cls": "bold-org",
       "icon": "assets/icons/ic-intern.png",
       "entries": [
         {
@@ -154,6 +156,7 @@ window.CV_DATA_ZH = {
     },
     {
       "title": "竞赛经历",
+      "cls": "bold-org",
       "icon": "assets/icons/ic-race.png",
       "entries": [
         {

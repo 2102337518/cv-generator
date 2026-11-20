@@ -24,6 +24,7 @@ window.CV_DATA_ZH = {
   "sections": [
     {
       "title": "教育经历",
+      "cls": "edu",
       "icon": "assets/icons/ic-edu.png",
       "entries": [
         {

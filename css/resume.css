@@ -189,6 +189,10 @@ html, body { background: transparent; }
 /* 专业技能条目在原简历中缩进 15pt */
 .resume-section.skills .cv-list li { padding-left: 15pt; }
 
+/* 教育经历中的荣誉奖项整体右移 */
+.resume-section.edu .block-label,
+.resume-section.edu .cv-list { padding-left: 18pt; }
+
 /* ---------- 高亮（**文字**，可选功能，默认不用） ---------- */
 mark {
   background: #f0f0f0;

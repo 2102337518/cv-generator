@@ -24,6 +24,7 @@ window.CV_DATA_EN = {
   "sections": [
     {
       "title": "Education",
+      "cls": "edu",
       "icon": "assets/icons/ic-edu.png",
       "entries": [
         {

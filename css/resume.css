@@ -13,7 +13,13 @@
 @font-face {
   font-family: 'Liberation Serif';
   src: url('../assets/icons/LiberationSerif-Regular.ttf') format('truetype');
-  font-weight: normal;
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Liberation Serif';
+  src: url('../assets/icons/LiberationSerif-Bold.ttf') format('truetype');
+  font-weight: 700;
   font-style: normal;
 }
 @font-face {
@@ -55,8 +61,8 @@ html, body { background: transparent; }
   width: 184mm;                    /* 210 - 13 - 13 */
   margin: 0 auto;
   color: var(--ink);
-  font-family: 'Times New Roman', 'Liberation Serif', 'LXGW WenKai', 'STKaiti', 'KaiTi',
-    '楷体', 'AR PL UKai CN', 'Noto Serif CJK SC', serif;
+  font-family: 'Times New Roman', 'Liberation Serif', 'Noto Serif CJK SC', 'Source Han Serif SC',
+    '思源宋体', 'SimSun', '宋体', 'LXGW WenKai', serif;
   font-size: 11.5pt;      /* 略小于 12pt：UKai 字体行高较高，11.5pt 的行距节奏与原版一致 */
   line-height: 15.5pt;
   -webkit-font-smoothing: antialiased;

@@ -95,7 +95,6 @@ window.CV_DATA_EN = {
       "icon": "assets/icons/ic-intern.png",
       "entries": [
         {
-          "num": "I.",
           "icon": "assets/icons/xpeng.png",
           "org": "XPeng Motors - Robotics Center",
           "role": "Motion Control Algorithm Engineer",
@@ -114,7 +113,6 @@ window.CV_DATA_EN = {
           ]
         },
         {
-          "num": "II.",
           "icon": "assets/icons/dji.png",
           "org": "DJI - Automotive",
           "role": "Vehicle Development Engineer",
@@ -133,7 +131,6 @@ window.CV_DATA_EN = {
           ]
         },
         {
-          "num": "III.",
           "icon": "assets/icons/midea.png",
           "org": "Midea Group - Corporate Research Center",
           "role": "Robotics Engineer",
@@ -160,7 +157,6 @@ window.CV_DATA_EN = {
       "icon": "assets/icons/ic-race.png",
       "entries": [
         {
-          "num": "I.",
           "icon": "assets/icons/robomaster.png",
           "org": "DJI RoboMaster ZhiZai FeiXiang UAV Intelligent Perception Competition",
           "role": "",
@@ -180,7 +176,6 @@ window.CV_DATA_EN = {
           ]
         },
         {
-          "num": "II.",
           "icon": "assets/icons/robocon.png",
           "org": "National College Robot Competition (ROBOCON)",
           "role": "Electronics Team Lead",

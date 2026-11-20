@@ -163,8 +163,8 @@ html, body { background: transparent; }
 
 /* ---------- 项目 ---------- */
 .project { margin-bottom: 1pt; }
-.project-title { margin-bottom: 2pt; }
-.project-desc, .project-tech { margin-bottom: 2pt; }
+.project-title { margin-bottom: 2pt; font-weight: 700; }
+.project-desc, .project-tech { margin-bottom: 2pt; font-weight: 700; }
 .project-result { margin-top: 2pt; }
 
 /* ---------- 块标签（工作内容：/ 主要工作：/ 荣誉奖项：） ---------- */

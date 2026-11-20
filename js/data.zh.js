@@ -95,7 +95,6 @@ window.CV_DATA_ZH = {
       "icon": "assets/icons/ic-intern.png",
       "entries": [
         {
-          "num": "一、",
           "icon": "assets/icons/xpeng.png",
           "org": "小鹏汽车-机器人中心",
           "role": "运动控制算法工程师",
@@ -114,7 +113,6 @@ window.CV_DATA_ZH = {
           ]
         },
         {
-          "num": "二、",
           "icon": "assets/icons/dji.png",
           "org": "大疆创新-车载自动驾驶",
           "role": "整车开发工程师",
@@ -133,7 +131,6 @@ window.CV_DATA_ZH = {
           ]
         },
         {
-          "num": "三、",
           "icon": "assets/icons/midea.png",
           "org": "美的集团-中央研究院",
           "role": "机器人工程师",
@@ -160,7 +157,6 @@ window.CV_DATA_ZH = {
       "icon": "assets/icons/ic-race.png",
       "entries": [
         {
-          "num": "一、",
           "icon": "assets/icons/robomaster.png",
           "org": "大疆 ROBOMASTER-智在飞翔无人飞行器智能感知技术竞赛",
           "role": "",
@@ -180,7 +176,6 @@ window.CV_DATA_ZH = {
           ]
         },
         {
-          "num": "二、",
           "icon": "assets/icons/robocon.png",
           "org": "全国大学生机器人竞赛 ROBOCON",
           "role": "电控组组长",

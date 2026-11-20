@@ -87,6 +87,15 @@ window.CV_DATA_EN = {
                 { "n": "1", "text": "Ported DreamWaQ to the Isaac Lab simulator and added a VAE load-estimation module, passing real-robot payload tests up to the robot's own body weight" },
                 { "n": "2", "text": "Delivered the in-house wheel-legged robot's algorithms from 0 to 1; built and trained an in-house Policy for stable multi-modal locomotion such as stair climbing and platform ascent" }
               ]
+            },
+            {
+              "plabel": "Project 3",
+              "title": "Full-Size Humanoid Walk-Run Integrated Locomotion",
+              "pointsLabel": "Work Details: ",
+              "points": [
+                { "n": "1", "text": "Trained 23-DOF humanoid walking and running policies separately with PPO in Isaac Lab/Gym, enabling smooth walk-run transitions and omnidirectional locomotion" },
+                { "n": "2", "text": "Introduced waist-motion-amplitude penalties and tuned in-place rotation rewards, with real-robot deployment verification" }
+              ]
             }
           ]
         }

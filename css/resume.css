@@ -155,8 +155,12 @@ html, body { background: transparent; }
   margin-right: 1pt;
 }
 .entry-org { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-/* 工作/实习/竞赛：公司-岗位行加粗 */
-.resume-section.bold-org .entry-org { font-weight: 700; }
+/* 工作/实习/竞赛：公司-岗位行加粗
+ * 楷体无粗体字重，合成粗体几乎不可见，故改用黑体实现真实加粗 */
+.resume-section.bold-org .entry-org {
+  font-family: 'SimHei', '黑体', 'Noto Sans CJK SC', 'Microsoft YaHei', sans-serif;
+  font-weight: 700;
+}
 .entry-period {
   margin-left: auto;
   white-space: nowrap;

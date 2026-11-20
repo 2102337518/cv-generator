@@ -27,7 +27,7 @@ window.CV_DATA_EN = {
       "icon": "assets/icons/ic-edu.png",
       "entries": [
         {
-          "icon": "assets/icons/badge-uestc.png",
+          "icon": "assets/icons/uestc.png",
           "org": "University of Electronic Science and Technology of China (UESTC)",
           "role": "Electronic Information, M.S. (Full-time)",
           "period": "Sep 2022 - Jun 2025"
@@ -63,7 +63,7 @@ window.CV_DATA_EN = {
       "icon": "assets/icons/ic-work.png",
       "entries": [
         {
-          "icon": "assets/icons/badge-cmhk.png",
+          "icon": "assets/icons/cmhk.png",
           "org": "Shizishan AI Lab, China Merchants Group",
           "role": "Algorithm Engineer",
           "period": "Jul 2025 - Present",
@@ -181,7 +181,7 @@ window.CV_DATA_EN = {
         },
         {
           "num": "II.",
-          "icon": "assets/icons/badge-robocon.png",
+          "icon": "assets/icons/robocon.png",
           "org": "National College Robot Competition (ROBOCON)",
           "role": "Electronics Team Lead",
           "projects": [

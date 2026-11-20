@@ -27,7 +27,7 @@ window.CV_DATA_ZH = {
       "icon": "assets/icons/ic-edu.png",
       "entries": [
         {
-          "icon": "assets/icons/badge-uestc.png",
+          "icon": "assets/icons/uestc.png",
           "org": "电子科技大学",
           "role": "电子信息 硕士 全日制",
           "period": "2022年09月 - 2025年06月"
@@ -63,7 +63,7 @@ window.CV_DATA_ZH = {
       "icon": "assets/icons/ic-work.png",
       "entries": [
         {
-          "icon": "assets/icons/badge-cmhk.png",
+          "icon": "assets/icons/cmhk.png",
           "org": "招商局狮子山人工智能实验室",
           "role": "算法工程师",
           "period": "2025年07月 - 至今",
@@ -181,7 +181,7 @@ window.CV_DATA_ZH = {
         },
         {
           "num": "二、",
-          "icon": "assets/icons/badge-robocon.png",
+          "icon": "assets/icons/robocon.png",
           "org": "全国大学生机器人竞赛 ROBOCON",
           "role": "电控组组长",
           "projects": [

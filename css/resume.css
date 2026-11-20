@@ -22,6 +22,13 @@
   font-weight: normal;
   font-style: normal;
 }
+/* 楷体加粗：霞鹜文楷 Medium（楷体无粗体，这是最重的楷体字重） */
+@font-face {
+  font-family: 'LXGW WenKai Medium';
+  src: url('../assets/icons/LXGWWenKai-Medium.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 
 /* ---------- 页面：A4，页边距还原原简历（左 37pt≈13mm，右 ≈13mm） ---------- */
 @page {
@@ -155,10 +162,9 @@ html, body { background: transparent; }
   margin-right: 1pt;
 }
 .entry-org { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-/* 工作/实习/竞赛：公司-岗位行加粗
- * 楷体无粗体字重，合成粗体几乎不可见，故改用黑体实现真实加粗 */
+/* 工作/实习/竞赛：公司-岗位行加粗（楷体加粗用霞鹜文楷 Medium） */
 .resume-section.bold-org .entry-org {
-  font-family: 'SimHei', '黑体', 'Noto Sans CJK SC', 'Microsoft YaHei', sans-serif;
+  font-family: 'LXGW WenKai Medium', 'STKaiti', 'KaiTi', '楷体', 'AR PL UKai CN', serif;
   font-weight: 700;
 }
 .entry-period {

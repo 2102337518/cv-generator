@@ -92,7 +92,7 @@ window.CV_DATA_EN = {
               "plabel": "Project 3",
               "title": "Full-Size Humanoid Walk-Run Integrated Locomotion",
               "descLabel": "Project Description: ",
-              "desc": "RL-based humanoid walk-run locomotion control: a PPO + AMP motion-style prior + state-estimator architecture enabling smooth walk-run transitions and omnidirectional locomotion",
+              "desc": "RL-based walk-run locomotion control for a full-size 31-DOF humanoid: a PPO + AMP motion-style prior + state-estimator architecture enabling smooth walk-run transitions and omnidirectional locomotion",
               "pointsLabel": "Work Details: ",
               "points": [
                 { "n": "1", "text": "Designed multi-term rewards (velocity tracking, posture stability, foot contact) with waist-motion penalties and in-place rotation rewards" },

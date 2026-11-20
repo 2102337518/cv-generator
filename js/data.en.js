@@ -91,10 +91,12 @@ window.CV_DATA_EN = {
             {
               "plabel": "Project 3",
               "title": "Full-Size Humanoid Walk-Run Integrated Locomotion",
+              "descLabel": "Project Description: ",
+              "desc": "RL-based humanoid walk-run locomotion control: a PPO + AMP motion-style prior + state-estimator architecture enabling smooth walk-run transitions and omnidirectional locomotion",
               "pointsLabel": "Work Details: ",
               "points": [
-                { "n": "1", "text": "Trained 23-DOF humanoid walking and running policies separately with PPO in Isaac Lab/Gym, enabling smooth walk-run transitions and omnidirectional locomotion" },
-                { "n": "2", "text": "Introduced waist-motion-amplitude penalties and tuned in-place rotation rewards, with real-robot deployment verification" }
+                { "n": "1", "text": "Designed multi-term rewards (velocity tracking, posture stability, foot contact) with waist-motion penalties and in-place rotation rewards" },
+                { "n": "2", "text": "Completed sim2real adaptation (motor torque-speed limiting, friction modeling, domain randomization) and real-robot deployment" }
               ]
             }
           ]
@@ -117,9 +119,8 @@ window.CV_DATA_EN = {
               "desc": "Adaptation and tuning of control algorithms for the humanoid robot",
               "pointsLabel": "Work Details: ",
               "points": [
-                { "n": "1", "text": "Characterized and commissioned humanoid linear-motor actuators, defined control performance metrics, and tuned PVT controllers using time-domain and frequency-domain indicators" },
-                { "n": "2", "text": "Independently implemented VR teleoperation for PX5 humanoid walking: communication design, MuJoCo simulation, state machine, and real-robot debugging" },
-                { "n": "3", "text": "Gait optimization: Bézier-curve gait planning, smart gait switching, straight-knee walking, and real-robot acceptance and parameter tuning" }
+                { "n": "1", "text": "Independently implemented VR teleoperation for PX5 humanoid walking: communication design, MuJoCo simulation, state machine, and real-robot debugging" },
+                { "n": "2", "text": "Bézier-curve gait planning and smart-gait switching for straight-knee walking, plus motor PVT controller tuning" }
               ]
             }
           ]
@@ -135,9 +136,8 @@ window.CV_DATA_EN = {
               "desc": "Forward development based on A-SPICE",
               "pointsLabel": "Work Details: ",
               "points": [
-                { "n": "1", "text": "Led the RHP project's forward A-SPICE process: static code analysis and Coverity remediation, Cantata unit testing, gdb integration development, and Python compliance test scripts" },
-                { "n": "2", "text": "AUTOSAR embedded development: data communication based on DCMS, and CAN communication validation with CANoe" },
-                { "n": "3", "text": "Vehicle actuator characterization and acceptance: wrote open-loop test cases from vehicle control models, evaluated actuator performance metrics, and delivered the acceptance report" }
+                { "n": "1", "text": "Led the RHP project's forward A-SPICE: static code analysis and Coverity remediation, Cantata unit testing, and gdb integration development" },
+                { "n": "2", "text": "AUTOSAR embedded development and CAN communication validation; vehicle actuator open-loop acceptance" }
               ]
             }
           ]
@@ -198,8 +198,8 @@ window.CV_DATA_EN = {
               "desc": "Designed two wheeled mobile robots to autonomously throw and kick a rugby ball in the competition",
               "pointsLabel": "Main Work: ",
               "points": [
-                { "n": "1", "text": "Selected laser and photoelectric sensors and wrote microcontroller code for sensor-controller data transmission and fusion; wrote STM32F4 main control code and tested kicking/throwing motor control" },
-                { "n": "2", "text": "State logic for upper mechanism actions and chassis positioning; full-field localization with quadrature encoders and gyroscope; PID tuning and electromechanical iteration" },
+                { "n": "1", "text": "Sensor selection and STM32F4 main-control development for multi-sensor data fusion and kicking/throwing mechanism motor control" },
+                { "n": "2", "text": "Full-field localization with quadrature encoders and gyroscope; PID tuning and electromechanical iteration" },
                 { "n": "3", "text": "Trajectory optimization simulation in Webots with 4th-order Bézier curves for smooth trajectories" }
               ],
               "resultLabel": "Result: ",
